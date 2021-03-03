@@ -51,17 +51,18 @@ function intersection(a: number[], b: number[]): number[] {
   return Array.from(set);
 }
 
-function intersect(a: number[], b: number[]): number[] {
-  const imap = new Map<number, number>();
-  const res: number[] = [];
-  for (let i of a) {
-    if (imap.has(i)) {
-      let f = imap.get(i);
-      imap.set(i, ++f);
-    } else imap.set(i, 1);
-  }
+//Wrong method
+// function intersect(a: number[], b: number[]): number[] {
+//   const imap = new Map<number, number>();
+//   const res: number[] = [];
+//   for (let i of a) {
+//     if (imap.has(i)) {
+//       let f = imap.get(i);
+//       imap.set(i, ++f);
+//     } else imap.set(i, 1);
+//   }
 
-  for (let i of b) if (imap.has(i)) res.push(i);
+//   for (let i of b) if (imap.has(i)) res.push(i);
 
-  return res;
-}
+//   return res;
+// }
