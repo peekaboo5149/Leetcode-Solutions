@@ -66,3 +66,21 @@ function intersection(a: number[], b: number[]): number[] {
 
 //   return res;
 // }
+
+function intersect(nums1: number[], nums2: number[]): number[] {
+  let new_nums1 = new Int32Array(nums1).sort();
+  let new_nums2 = new Int32Array(nums2).sort();
+
+  const res: number[] = [];
+
+  for (let i = 0, j = 0; i < new_nums1.length && j < new_nums2.length; i++) {
+    while (new_nums1[i] > new_nums2[j]) {
+      j++;
+    }
+    if (new_nums1[i] === new_nums2[j]) {
+      res.push(new_nums1[i]);
+      j++;
+    }
+  }
+  return res;
+}

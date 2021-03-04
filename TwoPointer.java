@@ -1,3 +1,4 @@
+import java.util.Arrays;
 
 class TwoPointer {
     public int[] sortedSquares(int[] a) {
@@ -61,4 +62,18 @@ class TwoPointer {
         int[] res = { re1 + 1, re2 + 1 };
         return res;
     }
+
+    // public int[] intersect(int[] nums1, int[] nums2) {
+    // int big = nums1.length,small = nums2.length;
+    // ///[1,2,2,1]
+    // /// [2,2]
+
+    // if(big>small){
+    // int i = 0,j=0;
+    // while(i<small){
+
+    // }
+    // }
+    // }
+
 }
