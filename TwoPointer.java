@@ -1,4 +1,4 @@
-import java.util.Arrays;
+import java.util.*;
 
 class TwoPointer {
     public int[] sortedSquares(int[] a) {
@@ -63,17 +63,50 @@ class TwoPointer {
         return res;
     }
 
-    // public int[] intersect(int[] nums1, int[] nums2) {
-    // int big = nums1.length,small = nums2.length;
-    // ///[1,2,2,1]
-    // /// [2,2]
+    // Normal Method
+    public boolean backspaceCompare_usingStringBuffers(String S, String T) {
 
-    // if(big>small){
-    // int i = 0,j=0;
-    // while(i<small){
+        StringBuffer s = new StringBuffer();
+        StringBuffer t = new StringBuffer();
 
-    // }
-    // }
-    // }
+        for (char c : S.toCharArray()) {
+            if (c != '#')
+                s.append(c);
+            else if (s.length() > 0)
+                s.deleteCharAt(s.length() - 1);
+        }
+        for (char c : T.toCharArray()) {
+            if (c != '#')
+                t.append(c);
+            else if (t.length() > 0)
+                t.deleteCharAt(t.length() - 1);
+        }
+        return s.toString().equals(t.toString());
+    }
 
+    // Using Stack
+    public boolean backspaceCompare_usingstack(String S, String T) {
+
+        Deque<Character> s = new ArrayDeque<>();
+        Deque<Character> t = new ArrayDeque<>();
+
+        for (char c : S.toCharArray()) {
+            if (c != '#')
+                s.push(c);
+            else if (!s.isEmpty())
+                s.pop();
+        }
+
+        for (char c : T.toCharArray()) {
+            if (c != '#')
+                t.push(c);
+            else if (!t.isEmpty())
+                t.poll();
+        }
+
+        if (s.isEmpty() && t.isEmpty())
+            return true;
+
+        return s.toString().equals(t.toString());
+    }
 }
