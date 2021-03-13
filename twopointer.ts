@@ -84,3 +84,19 @@ function intersect(nums1: number[], nums2: number[]): number[] {
   }
   return res;
 }
+
+function removeItemAll(arr: number[], value: number): number[] {
+  var i = 0;
+  while (i < arr.length) {
+    if (arr[i] === value) {
+      arr.splice(i, 1);
+    } else {
+      ++i;
+    }
+  }
+  return arr;
+}
+
+function removeElement(nums: number[], val: number): number {
+  return removeItemAll(nums, val).length;
+}
