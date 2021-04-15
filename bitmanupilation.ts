@@ -9,3 +9,9 @@ function decode(encoded: number[], a0: number): number[] {
 
   return original;
 }
+
+function xorOperation(n: number, start: number): number {
+  let res = 0;
+  for (let i = 0; i < n; i++) res ^= start + (i << 1);
+  return res;
+}
