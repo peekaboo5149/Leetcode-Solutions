@@ -39,7 +39,7 @@ function intersection(a: number[], b: number[]): number[] {
 
   for (let i of a) {
     if (imap.has(i)) {
-      let f = imap.get(i);
+      let f: number = imap.get(i) as number;
       imap.set(i, ++f);
     } else imap.set(i, 1);
   }
@@ -99,4 +99,43 @@ function removeItemAll(arr: number[], value: number): number[] {
 
 function removeElement(nums: number[], val: number): number {
   return removeItemAll(nums, val).length;
+}
+
+function reverseVowels(s: string): string {
+  const vowels = new Set<string>([
+    "a",
+    "e",
+    "i",
+    "o",
+    "u",
+    "A",
+    "E",
+    "I",
+    "O",
+    "U",
+  ]);
+
+  let i = 0,
+    j = s.length - 1;
+
+  const str: string[] = [...s];
+
+  while (i < j) {
+    if (vowels.has(str[i]) && vowels.has(str[j])) {
+      let temp = str[i];
+      str[i] = str[j];
+      str[j] = temp;
+    } else {
+      i++;
+      j--;
+    }
+  }
+
+  const res: string = "";
+
+  for (let i of str) {
+    res.concat(i);
+  }
+
+  return res;
 }

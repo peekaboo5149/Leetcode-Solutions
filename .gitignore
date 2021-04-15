@@ -1,2 +1,7 @@
-test.js
+*.test.js
 Test.java
+another_test.js
+tsconfig.json
+package.json
+package-lock.json
+node_modules
